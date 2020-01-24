@@ -2,6 +2,7 @@ package com.jcminarro.philology
 
 import android.content.Context
 import android.content.ContextWrapper
+import android.content.res.Configuration
 import android.os.Build
 import androidx.appcompat.widget.Toolbar
 import android.view.View
@@ -28,6 +29,8 @@ object Philology {
     }
 
     fun wrap(baseContext: Context): ContextWrapper = PhilologyContextWrapper(baseContext)
+
+    fun wrap(baseContext: Context, overrideConf: Configuration): ContextWrapper = PhilologyContextWrapper(baseContext, overrideConf)
 
     internal fun getPhilologyRepository(locale: Locale): PhilologyRepository =
             repositoryMap[locale] ?:
